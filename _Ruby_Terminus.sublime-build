@@ -1,0 +1,12 @@
+{
+	"target": "terminus_open",
+	"cancel": "terminus_cancel_build",
+	"auto_close": true,
+	"timeit":true,
+	"focus":true,
+	"title": "Ruby Output",
+	
+	"shell_cmd": "ruby $file & pause",
+	"file_regex": "^(...?):([0-9]):?([0-9]*)",
+	"selector": "source.ruby"
+}

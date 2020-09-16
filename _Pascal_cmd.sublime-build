@@ -1,0 +1,3 @@
+{
+	"shell_cmd": "fpc $file_name && start ${file_base_name}"
+}

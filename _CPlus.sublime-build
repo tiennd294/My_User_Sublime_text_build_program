@@ -1,0 +1,13 @@
+{
+    "shell_cmd": "g++ -Wall -std=c++11 ${file} -o ${file_base_name} && cmd /c ${file_path}/${file_base_name}",
+    "working_dir": "${file_path}",
+    "selector": "source.c, source.c++",
+}
+
+
+/*
+chekc version C(cmd): g++ -v
+c++ -v
+No run if Cin or getch() =>> Die process
+*/
+

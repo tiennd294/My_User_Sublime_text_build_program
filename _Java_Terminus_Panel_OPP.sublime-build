@@ -1,0 +1,14 @@
+{
+	"target": "terminus_exec",
+	"cancel": "terminus_cancel_build",
+	"auto_close": true,
+	"timeit":true,
+	"focus":true,
+	"title": "Java Output",
+
+	/*"shell_cmd": "javac \"${file_path}/${file_name}\" && java \"${file_path}/${file_base_name}\" & pause\"",*/
+	"shell_cmd": "cd /d ${file_path} && javac $file && java $file_base_name & pause",
+	"file_regex": "^(...?):([0-9]):?([0-9]*)",
+	"selector": "source.java"
+}
+

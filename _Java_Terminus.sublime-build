@@ -1,0 +1,155 @@
+{
+	"target": "terminus_open",
+	"cancel": "terminus_cancel_build",
+	"auto_close": true,
+	"timeit":true,
+	"focus":true,
+	"title": "Java Output",
+
+	/*"shell_cmd": "javac \"${file_path}/${file_name}\" && java \"${file_path}/${file_base_name}\" & pause\"",*/
+	"shell_cmd": "cd /d ${file_path} && javac ${file} && java ${file} & pause",
+	"file_regex": "^(...?):([0-9]):?([0-9]*)",
+	"selector": "source.java"
+}
+
+/*Java Package chỉ có một class trong một package */
+/*Dùng lệnh cd <đường dẫn> để chuyển đến thư mục gốc chứa các tập tin .class đã được biên dịch bằng javac sau đó thực thi: 
+java [tên gói.]<tên lớp chính>. 
+Trong lớp chính phải định nghĩa phương thức: public static void main(String[] args) để java gọi và bắt đầu chạy từ đây.
+
+Ví dụ:
+
+D:/JavaPrograming/TestProject/mypackage/Main.java
+
+*Chạy CMD để biên dịch:
+
+cd "D:/JavaPrograming/TestProject"
+javac "mypackage/Main.java"
+
+*Sau khi biên dịch bằng javac sẽ có thêm:
+
+D:/JavaPrograming/TestProject/mypackage/Main.class
+Thực thi CMD:
+
+cd "D:/JavaPrograming/TestProject"
+java mypackage.Main
+
+*Tóm gọn lại thì cả biên dịch và chạy là thế này:
+
+cd "D:/JavaPrograming/TestProject"
+javac "mypackage/Main.java"
+java mypackage.Main
+*/
+
+
+/*Ví dụ về java package
+Từ khóa package được sử dụng để tạo một package trong java
+
+
+Save file Simple.java
+package mypack;  
+public class Simple {  
+    public static void main(String args[]) {
+        System.out.println("Learn java package");
+    }
+}  
+Biên dịch java package
+Nếu bạn không sử dụng IDE, bạn cần thực hiện theo cú pháp dưới đây:
+
+javac -d directory javafilename  
+Ví dụ:
+
+javac -d . Simple.java  
+Lệnh -d được sử dụng để xách định nơi lưu trữ file .class sau khi biên dịch. Bạn có thể sử dụng bất kỳ tên thư mục nào như /home (Trong Linux OS), D:/temp (Trong Window OS). Nếu bạn muốn giữ các package này trong thư mục hiện tại ban sử dụng dấu chấm (.).
+
+Run java package
+Để run java package, bạn cần phải sử dụng tên đầy đủ. Ví dụ mypack.Simple.
+
+Compile: javac -d . Simple.java
+
+Run: java mypack.Simple
+
+Kết quả:
+
+Learn java package
+Dấu chấm (.) biển diễn thư mục hiện tại.
+
+Truy cập package từ package khác
+Có 3 cách để truy cập package từ package bên ngoài:
+
+Khai báo import package.*;
+Khai báo import package.classname;
+Sử dụng tên đầy đủ.
+. Sử dụng packagename.*
+Nếu bạn sử dụng packagename.*. Thì tất cả các lớp và các interface của các gói này sẽ có thể truy cập, nhưng gói con của gói này thì không được truy cập.
+
+Từ khóa import được sử dụng để truy cập các lớp và interface của gói khác từ gói hiện tại.
+
+Ví dụ:
+
+package pack;
+public class A {
+    public void msg() {
+        System.out.println("Hello");
+    }
+}
+
+package mypack;  
+import pack.*;  
+   
+class B {
+    public static void main(String args[]) {
+        A obj = new A();
+        obj.msg();
+    }
+}
+Kết quả:
+
+Hello
+. Sử dụng packagename.classname
+ếu bạn khai báo import package.classname thì chỉ được truy cập tới lớp đã được khai báo của package này.
+V
+package pack;  
+public class A {
+    public void msg() {
+        System.out.println("Hello");
+    }
+} 
+
+package mypack;  
+import pack.A;  
+   
+class B {
+    public static void main(String args[]) {
+        A obj = new A();
+        obj.msg();
+    }
+}
+Kết quả:
+
+Hello
+3. Sử dụng tên đầy đủ
+Nếu bạn sử dụng tên đầy đủ thì chỉ được truy cập tới lớp đã được khai báo của package này. Bạn không cần phải sử dụng đến từ khóa import. Nhưng bạn cần phải sử dụng tên đầy đủ mỗi khi bạn truy cập vào các lớp hoặc interface.
+
+Cách này thường được sử dụng khi  package có tên lớp giống nhau. Ví dụ,  package java.util và java.sql chứa lớp có tên giống nhau là lớp Date
+Ví
+package pack;  
+public class A {
+    public void msg() {
+    System.out.println("Hello");
+    }
+}
+
+package mypack;  
+class B{  
+    public static void main(String args[]){  
+        pack.A obj = new pack.A(); //Sử dụng tên đầy đủ
+        obj.msg();  
+    }  
+}  
+Kết quả:
+
+Hello
+Note: Nếu bạn import một package thì package con của package đó không được import.
+Thứ tự của chương trình phải là package->import->class.
+*/

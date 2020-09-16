@@ -1,0 +1,13 @@
+{
+    "target": "terminus_open",
+	"cancel": "terminus_cancel_build",
+	"auto_close": true,
+	"timeit":true,
+	"focus":true,
+	"title": "C++ Output",
+	
+    //"shell_cmd": "g++ -Wall -std=c++11 ${file} -o ${file_base_name} && cmd /c ${file_path}/${file_base_name} & pause",
+    "shell_cmd": "g++ -Wall -std=c++11 \"${file}\" -o \"${file_base_name}\" && cmd /c \"${file_base_name}\" & pause\"",
+    "working_dir": "${file_path}",
+    "selector": "source.c, source.c++",
+}

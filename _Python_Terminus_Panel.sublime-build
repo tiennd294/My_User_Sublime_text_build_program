@@ -1,0 +1,13 @@
+{
+	"target": "terminus_exec",
+	"cancel": "terminus_cancel_build",
+	"auto_close": true,
+	"timeit":true,
+	"title": "Python Output",
+	"focus":true,
+	
+	"shell_cmd": "python -u $file & pause",
+	"file_regex": "^[ ]*File (...*?), line ([0-9]*)",
+	"selector": "source.python",
+	"env": {"PYTHONIOENCODING": "utf-8"},
+}

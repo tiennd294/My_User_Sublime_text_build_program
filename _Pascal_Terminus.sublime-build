@@ -1,0 +1,9 @@
+{
+	"target": "terminus_open",
+	"cancel": "terminus_cancel_build",
+	"auto_close": true,
+	"timeit":true,
+	"focus":true,
+	"title": "Pascal Output",
+	"shell_cmd": "fpc \"${file_path}/${file_name}\" && \"${file_path}/${file_base_name}\" && pause\""
+}

@@ -1,0 +1,12 @@
+{
+    "target": "terminus_open",
+	"cancel": "terminus_cancel_build",
+	"auto_close": false,
+	"timeit":true,
+	"focus":true,
+	"title": "Windows_PowerShell_Terminus",
+	
+    "shell_cmd": "cmd",
+    "working_dir": "${file_path}",
+    /*"selector": "source.c, source.c++, python, java, ruby, pascal",*/
+}
